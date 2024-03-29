@@ -28,7 +28,7 @@ class LoginRegisterController extends Controller
     {
         // Redirect to dashboard if user is authenticated
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
 
         return view('auth.register');
@@ -62,7 +62,7 @@ class LoginRegisterController extends Controller
 
         // Regenerate session and redirect to dashboard
         $request->session()->regenerate();
-        return redirect()->route('dashboard')->withSuccess('You have successfully registered & logged in!');
+        return redirect()->route('home')->withSuccess('You have successfully registered & logged in!');
     }
 
     /**
@@ -74,7 +74,7 @@ class LoginRegisterController extends Controller
     {
         // Redirect to dashboard if user is authenticated
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
 
         return view('auth.login');
@@ -97,7 +97,7 @@ class LoginRegisterController extends Controller
         // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard')->withSuccess('You have successfully logged in!');
+            return redirect()->route('home')->withSuccess('You have successfully logged in!');
         }
 
         // Redirect back with error if authentication fails
@@ -109,17 +109,94 @@ class LoginRegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboard()
+    public function home()
     {
         // Check if user is authenticated
         if (Auth::check()) {
-            return view('auth.dashboard');
+            return view('auth.home');
         }
         
         // Redirect to login with error message if not authenticated
         return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
     } 
     
+
+    public function about()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.about');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
+
+    public function admin()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.admin');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
+
+    public function blog()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.blog');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
+
+    public function contact()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.contact');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
+
+    public function portfolio()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.portfolio');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
+
+    public function services()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.services');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
+
+    public function user()
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.user');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+    } 
     /**
      * Log out the user from application.
      *

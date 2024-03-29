@@ -44,4 +44,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Your other properties and methods...
+
+    // Define isAdmin method
+    public function isAdmin()
+    {
+        return $this->role === 'admin'; // Assuming you have a role field in your users table
+    }
 }
