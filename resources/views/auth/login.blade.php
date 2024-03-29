@@ -1,6 +1,7 @@
 @extends('auth.main')
 @section('content')
 
+<br><br><br><br><br><br><br><br><br><br>
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
 

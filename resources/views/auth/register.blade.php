@@ -2,6 +2,7 @@
 
 @section('content')
 
+<br><br><br><br><br><br><br><br>
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
 
@@ -43,6 +44,13 @@
                           <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                                <label></label>
+                                <select name="user_type" required>
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                                </select>
+                        </div>
                     <div class="mb-3 row">
                         <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
                     </div>
