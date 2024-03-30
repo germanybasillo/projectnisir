@@ -58,6 +58,10 @@
         .user-icon {
     color: blue;
 }
+
+.admin-icon {
+    color: black;
+}
     </style>
 </head>
 <body>
@@ -113,7 +117,7 @@
         @endif
     </a>
     <ul class="dropdown-menu">
-    <span style="display: block; padding: 10px 30px; color: #333;">{{ auth()->user()->email }}</span>
+    <span style="display: block; padding: 10px 30px; color: #333; font-weight: bold;">{{ auth()->user()->email }}</span>
         @if(auth()->user()->isAdmin())
             <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li>
         @else
