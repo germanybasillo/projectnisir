@@ -128,7 +128,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect('/')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my home project.']);
     } 
     
 
@@ -140,7 +141,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my about project.']);
     } 
 
     public function admin()
@@ -151,7 +153,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my admin dashboarad project.']);
     } 
 
     public function blog()
@@ -162,7 +165,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my blog project.']);
     } 
 
     public function contact()
@@ -173,7 +177,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my contact project.']);
     } 
 
     public function portfolio()
@@ -184,7 +189,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my portfolio project.']);
     } 
 
     public function services()
@@ -195,7 +201,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my services project.']);
     } 
 
     public function user()
@@ -206,7 +213,8 @@ class LoginRegisterController extends Controller
         }
         
         // Redirect to login with error message if not authenticated
-        return redirect()->route('login')->withErrors(['email' => 'Please login to access the dashboard.'])->onlyInput('email');
+        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
     } 
     /**
      * Log out the user from application.
@@ -224,7 +232,7 @@ class LoginRegisterController extends Controller
         $request->session()->regenerateToken();
         
         // Redirect to login page with success message
-        return redirect()->route('login')->withSuccess('You have logged out successfully!');
+        return redirect('/')->withSuccess('You have logged out successfully!');
     }    
 }
 

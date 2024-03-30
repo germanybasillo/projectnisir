@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Loading overlay style */
+        body.loading {
+    overflow: hidden;
+}
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -51,14 +54,24 @@
                 content: 'a';
             }
         }
+
+        .user-icon {
+    color: blue;
+}
     </style>
 </head>
 <body>
+@if ($errors->any())
+    <!-- Display the first error message -->
+    <div class="alert alert-danger">
+        {{ $errors->first() }}
+    </div>
+@endif
 <!--================ Start Header Area =================-->
 <header class="header_area">
     <div class="main_menu">
-        <!--================ loading Area =================-->
-        <div class="loading-overlay"></div>
+      <!--================ loading Area =================-->
+      <div class="loading-overlay"></div>
         <!--================ loading end =================-->
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
@@ -90,23 +103,23 @@
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
+    <span style="font-size: 0.8em;">({{ auth()->user()->isAdmin() ? 'Admin' : 'User' }})</span>
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
        aria-expanded="false">
-        <i class="fa fa-user"></i>
-        <span style="font-size: 0.8em;">({{ auth()->user()->isAdmin() ? 'Admin' : 'User' }})</span>
+        @if(auth()->user()->isAdmin())
+            <i class="fa fa-shield-alt admin-icon"></i>
+        @else
+            <i class="fa fa-user user-icon"></i>
+        @endif
     </a>
     <ul class="dropdown-menu">
-        <li style="margin-left:10px;">{{ auth()->user()->email }}</li>
+        <span>{{ auth()->user()->email }}</span>
         @if(auth()->user()->isAdmin())
-            <li class="nav-item">
-                <a class="nav-link" href="admin">Dashboard</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li>
         @else
-            <li class="nav-item">
-                <a class="nav-link" href="user">Dashboard</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="user">Dashboard</a></li>
         @endif
-        <li><a class="dropdown-item" href="{{ route('logout') }}"
+        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                document.getElementById('logout-form').submit();"
             >Logout</a>
@@ -116,7 +129,8 @@
         </li>
     </ul>
 </li>
-                        @endguest
+
+@endguest
                     </ul>
                 </div>
             </div>
@@ -150,6 +164,9 @@
 <script src="{{ asset('webpage/js/gmaps.min.js') }}"></script>
 <script src="{{ asset('webpage/js/theme.js') }}"></script>
 <script>
+    // Add 'loading' class to the body when the page starts loading
+    document.body.classList.add('loading');
+
     // Hide loading overlay after animation ends
     window.addEventListener('load', function () {
         var loadingOverlay = document.querySelector('.loading-overlay');
@@ -157,6 +174,8 @@
         setTimeout(function () {
             loadingOverlay.style.display = 'none';
             mainContent.style.display = 'block';
+            // Remove 'loading' class from the body when loading is complete
+            document.body.classList.remove('loading');
         }, 3000); // Adjust timing to match animation duration
     });
 </script>
