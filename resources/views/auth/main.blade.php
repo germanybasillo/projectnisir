@@ -113,7 +113,7 @@
         @endif
     </a>
     <ul class="dropdown-menu">
-        <span>{{ auth()->user()->email }}</span>
+    <span style="display: block; padding: 10px 30px; color: #333;">{{ auth()->user()->email }}</span>
         @if(auth()->user()->isAdmin())
             <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li>
         @else
