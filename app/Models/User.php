@@ -50,6 +50,7 @@ class User extends Authenticatable
     // Define isAdmin method
     public function isAdmin()
     {
-        return $this->role === 'admin'; // Assuming you have a role field in your users table
+        return $this->user_type === 'admin';
     }
 }
+

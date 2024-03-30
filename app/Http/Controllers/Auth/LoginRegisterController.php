@@ -46,17 +46,26 @@ class LoginRegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
-            'password' => 'required|min:8|confirmed',
-            'user_type' => 'required|in:user,admin' // Assuming user type can be 'user' or 'admin'
+            'user_type' => 'required|in:user,admin', // Assuming user type can be 'user' or 'admin'
+            'password' => 'required|min:8|confirmed'
         ]);
+    
+        // Create new user with provided user type
+        // User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'user_type' => $request->user_type, // User-specified user type
+        //     'password' => Hash::make($request->password)
+        // ]);
 
-        // Create new user
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'user_type' => $request->user_type // User-specified user type
-        ]);
+        $data = $request->all();
+
+        $user = new User();
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->user_type = $data['user_type'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
 
         // Attempt to log in the new user
         $credentials = $request->only('email', 'password');

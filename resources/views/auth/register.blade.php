@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">Register</div>
             <div class="card-body">
-                <form action="{{ route('store') }}" method="post">
+                <form action="{{ route('store') }}" method="post"> <!-- Updated form action -->
                     @csrf
                     <div class="mb-3 row">
                         <label for="name" class="col-md-4 col-form-label text-md-end text-start">Name</label>
@@ -45,14 +45,18 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                                <label></label>
-                                <select name="user_type" required>
+                        <label class="col-md-4 col-form-label text-md-end text-start">User Type</label>
+                        <div class="col-md-6">
+                            <select name="user_type" class="form-control" required>
                                 <option value="user">User</option>
                                 <option value="admin">Admin</option>
-                                </select>
+                            </select>
                         </div>
+                    </div>
                     <div class="mb-3 row">
-                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
                     </div>
                     
                 </form>
