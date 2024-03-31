@@ -1,41 +1,42 @@
 @extends('auth.main')
 @section('content')
-
-<br><br><br><br><br><br><br><br><br><br>
-<div class="row justify-content-center mt-5">
-    <div class="col-md-8">
-
-        <div class="card">
-            <div class="card-header">Login</div>
-            <div class="card-body">
-                <form action="{{ route('authenticate') }}" method="post">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"></h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+		      	<div class="icon d-flex align-items-center justify-content-center">
+		      		<span class="fa fa-user-o"></span>
+		      	</div>
+		      	<h3 class="text-center mb-4">Sign In</h3>
+                  <form action="{{ route('authenticate') }}" method="post">
                     @csrf
-                    <div class="mb-3 row">
-                        <label for="email" class="col-md-4 col-form-label text-md-end text-start">Email Address</label>
-                        <div class="col-md-6">
-                          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
-                            @if ($errors->has('email'))
+		      		<div class="form-group">
+		      			<input type="text" name="email" class="form-control rounded-left @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}">
+                          @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="password" class="col-md-4 col-form-label text-md-end text-start">Password</label>
-                        <div class="col-md-6">
-                          <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
-                            @if ($errors->has('password'))
+		      		</div>
+	            <div class="form-group d-flex">
+	              <input type="password" name="password" class="form-control rounded-left @error('email') is-invalid @enderror" placeholder="Password">
+                  @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Login">
-                    </div>
-                    
-                </form>
-            </div>
-        </div>
-    </div>    
-</div>
-    
-@endsection
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
+	            </div>
+                    <a href="register">Dont have an Account?Register</a>
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+    @endsection

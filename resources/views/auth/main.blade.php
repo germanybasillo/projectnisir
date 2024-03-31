@@ -6,6 +6,12 @@
     <title>ZeHa_Web - @yield('title')</title>
     <link rel="icon" href="{{ asset('webpage/img/z.png') }}" type="image/png">
     <!-- Bootstrap CSS -->
+
+    <!-- form style -->
+<link href="{{asset('form/https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('formhttps://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('form/css/style.css')}}">
+    <!-- end -->
     <link rel="stylesheet" href="{{ asset('webpage/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('webpage/vendors/linericon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('webpage/css/font-awesome.min.css') }}">
@@ -152,6 +158,13 @@
 <!--================End Footer Area =================-->
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<!-- formjs -->
+<script src="{{asset('form/js/jquery.min.js')}}"></script>
+  <script src="{{asset('form/js/popper.js')}}"></script>
+  <script src="{{asset('form/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('form/js/main.js')}}"></script>
+<!-- end -->
 <script src="{{ asset('webpage/js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('webpage/js/popper.js') }}"></script>
 <script src="{{ asset('webpage/js/bootstrap.min.js') }}"></script>
