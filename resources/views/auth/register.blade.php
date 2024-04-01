@@ -37,6 +37,13 @@
                 <div class="form-group d-flex">
                 <input type="password" name="password_confirmation" class="form-control rounded-left" placeholder="Confirm Password">
                 </div>
+				<div class="form-group d-flex">
+                                <label></label>
+                                <select name="user_type" required>
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                                </select>
+				</div>
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
 	            </div>

@@ -23,7 +23,7 @@
                             @endif
 		      		</div>
 	            <div class="form-group d-flex">
-	              <input type="password" name="password" class="form-control rounded-left @error('email') is-invalid @enderror" placeholder="Password">
+	              <input type="password" name="password" class="form-control rounded-left @error('password') is-invalid @enderror" placeholder="Password">
                   @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
