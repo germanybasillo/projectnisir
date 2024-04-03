@@ -21,46 +21,66 @@
     <link rel="stylesheet" href="{{ asset('webpage/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Loading overlay style */
-        body.loading {
-    overflow: hidden;
+ #loader {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
 }
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(128, 0, 128, 0.5); /* Purple background with 50% opacity */
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 36px;
-            color: blue; /* Blue text color */
-        }
 
-        /* Animation for loading */
-        .loading-overlay:after {
-            content: 'z';
-            animation: animateZ 4s infinite;
-        }
+.loader-inner {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    animation: spin 2s linear infinite;
+}
+.loader-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #800080;
+    animation: stretch 1s infinite ease-in-out;
+}
 
-        @keyframes animateZ {
-            0% {
-                content: 'z';
-            }
-            25% {
-                content: 'e';
-            }
-            50% {
-                content: 'h';
-            }
-            75% {
-                content: 'a';
-            }
-        }
+.loader-line:nth-child(1),
+.loader-line:nth-child(3) {
+    top: calc(50% - 1px);
+    left: 0;
+    transform: rotate(45deg);
+}
 
+.loader-line:nth-child(2),
+.loader-line:nth-child(4) {
+    top: calc(50% - 1px);
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+
+.loader-line:nth-child(1) { top: 0; }
+.loader-line:nth-child(2) { top: 8px; }
+.loader-line:nth-child(3) { top: 16px; }
+.loader-line:nth-child(4) { top: 24px; }
+.loader-line:nth-child(5) { top: 32px; }
+.loader-line:nth-child(6) { top: 40px; }
+.loader-line:nth-child(7) { top: 48px; }
+.loader-line:nth-child(8) { top: 56px; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes stretch {
+    0%, 40%, 100% { transform: scaleY(0.4); }
+    20% { transform: scaleY(1.0); }
+}
         .user-icon {
     color: blue;
 }
@@ -69,8 +89,31 @@
     color: black;
 }
     </style>
+    <script>
+    window.addEventListener("load", function () {
+        const loader = document.getElementById("loader");
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    });
+</script>
 </head>
 <body>
+<div id="loader">
+        <div class="loader-inner">
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    
 @if ($errors->any())
     <!-- Display the first error message -->
     <div class="alert alert-danger">
@@ -80,9 +123,7 @@
 <!--================ Start Header Area =================-->
 <header class="header_area">
     <div class="main_menu">
-      <!--================ loading Area =================-->
-      <div class="loading-overlay"></div>
-        <!--================ loading end =================-->
+    
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -180,21 +221,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 <script src="{{ asset('webpage/js/gmaps.min.js') }}"></script>
 <script src="{{ asset('webpage/js/theme.js') }}"></script>
-<script>
-    // Add 'loading' class to the body when the page starts loading
-    document.body.classList.add('loading');
 
-    // Hide loading overlay after animation ends
-    window.addEventListener('load', function () {
-        var loadingOverlay = document.querySelector('.loading-overlay');
-        var mainContent = document.querySelector('main');
-        setTimeout(function () {
-            loadingOverlay.style.display = 'none';
-            mainContent.style.display = 'block';
-            // Remove 'loading' class from the body when loading is complete
-            document.body.classList.remove('loading');
-        }, 3000); // Adjust timing to match animation duration
-    });
-</script>
 </body>
 </html>
