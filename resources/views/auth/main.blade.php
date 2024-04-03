@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
-<body style="height: 100vh;">
+<body style="height:100vh;">
 
 @if ($errors->any())
     <!-- Display the first error message -->
