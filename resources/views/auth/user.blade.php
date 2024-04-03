@@ -79,7 +79,7 @@
       </a>
       <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
         <div class="dropdown-header">
-          <h4>Good Day, <span class="small text-muted"> {{ auth()->user()->name }}</span></h4>
+          <h4>Good Day, <span class="small text-muted">{{ auth()->user()->name }}</span></h4>
           <p class="text-muted"></p>
           <hr />
             <a href="#" class="dropdown-item">
@@ -90,10 +90,10 @@
               <i class="ti ti-user"></i>
               <span>Social Profile</span>
             </a>
-            <a href="{{ route('logout') }}" class="dropdown-item">
+            {{-- <a href="{{ route('logout') }}" class="dropdown-item">
               <i class="ti ti-logout"></i>
               <span>Logout</span>
-            </a>
+            </a> --}}
           </div>
         </div>
       </div>
@@ -114,11 +114,11 @@
     <div class="navbar-content">
       <ul class="pc-navbar">
         <li class="pc-item pc-caption">
-          <label>User</label>
+          <label>{{ auth()->user()->name }}</label>
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
-          <a href="admin" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span
+          <a href="user" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span
               class="pc-mtext">Dashboard</span></a>
         </li>   
       </ul>

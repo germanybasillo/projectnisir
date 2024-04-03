@@ -11,7 +11,7 @@
 					<div class="col-lg-7">
 						<div class="banner_content">
 							<h3 class="text-uppercase">Hell0</h3>
-							<h1 class="text-uppercase">Welcome {{ auth()->user()->name }}</h1>
+							<h1 class="text-uppercase">Welcome 	{{ auth()->user()->name }}</h1>
 							@if(auth()->user()->isAdmin())
 							<h5 class="text-uppercase">{{ auth()->user()->isAdmin() ? 'Administrator' : 'User' }}</h5>
 							@else

@@ -40,5 +40,4 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 // In routes/web.php
 use App\Http\Controllers\ContactFormController;
-
 Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.store');

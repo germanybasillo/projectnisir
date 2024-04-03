@@ -216,6 +216,8 @@ class LoginRegisterController extends Controller
         // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
         return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
     } 
+
+
     /**
      * Log out the user from application.
      *

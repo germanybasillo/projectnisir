@@ -90,10 +90,10 @@
               <i class="ti ti-user"></i>
               <span>Social Profile</span>
             </a>
-            <a href="{{ route('logout') }}" class="dropdown-item">
+            {{-- <a href="{{ route('logout') }}" class="dropdown-item">
               <i class="ti ti-logout"></i>
               <span>Logout</span>
-            </a>
+            </a> --}}
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@
     <div class="navbar-content">
       <ul class="pc-navbar">
         <li class="pc-item pc-caption">
-          <label>Admin</label>
+          <label>{{ auth()->user()->name }}</label>
           <i class="ti ti-dashboard"></i>
         </li>
         <li class="pc-item">
