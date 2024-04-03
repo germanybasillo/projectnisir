@@ -74,9 +74,9 @@
     <ul class="dropdown-menu">
     {{-- <span style="display: block; padding: 10px 30px; color: #333; font-weight: bold;">{{ auth()->user()->email }}</span> --}}
         @if(auth()->user()->isAdmin())
-            {{-- <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li> --}}
+            <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li>
         @else
-            {{-- <li class="nav-item"><a class="nav-link" href="user">Dashboard</a></li> --}}
+            <li class="nav-item"><a class="nav-link" href="user">Dashboard</a></li>
         @endif
         <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                onclick="event.preventDefault();
