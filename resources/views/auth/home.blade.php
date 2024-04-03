@@ -11,11 +11,18 @@
 					<div class="col-lg-7">
 						<div class="banner_content">
 							<h3 class="text-uppercase">Hell0</h3>
-							<h1 class="text-uppercase">I am Germany Lungay</h1>
-							<h5 class="text-uppercase">bsit-3 student</h5>
+							<h1 class="text-uppercase">Welcome {{ auth()->user()->name }}</h1>
+							@if(auth()->user()->isAdmin())
+							<h5 class="text-uppercase">{{ auth()->user()->isAdmin() ? 'Administrator' : 'User' }}</h5>
+							@else
+							<h5 class="text-uppercase">{{ auth()->user()->isAdmin() ? 'Administrator' : 'User' }}</h5>
+       						@endif
 							<div class="d-flex align-items-center">
-								<!-- <a class="primary_btn" href="#"><span>LogIn</span></a>
-								<a class="primary_btn tr-bg" href="#"><span>Register</span></a> -->
+								@if(auth()->user()->isAdmin())
+								<a class="primary_btn" href="admin"><span>Dashboard</span></a>
+								@else
+								<a class="primary_btn tr-bg" href="user"><span>Dashboard</span></a>
+								@endif
 							</div>
 						</div>
 					</div>

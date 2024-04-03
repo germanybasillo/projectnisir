@@ -20,100 +20,14 @@
     <link rel="stylesheet" href="{{ asset('webpage/vendors/nice-select/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('webpage/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
- #loader {
-    position: fixed;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 1;
-}
-
-.loader-inner {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    animation: spin 2s linear infinite;
-}
-.loader-line {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #800080;
-    animation: stretch 1s infinite ease-in-out;
-}
-
-.loader-line:nth-child(1),
-.loader-line:nth-child(3) {
-    top: calc(50% - 1px);
-    left: 0;
-    transform: rotate(45deg);
-}
-
-.loader-line:nth-child(2),
-.loader-line:nth-child(4) {
-    top: calc(50% - 1px);
-    right: 0;
-    transform: rotate(-45deg);
-}
-
-
-.loader-line:nth-child(1) { top: 0; }
-.loader-line:nth-child(2) { top: 8px; }
-.loader-line:nth-child(3) { top: 16px; }
-.loader-line:nth-child(4) { top: 24px; }
-.loader-line:nth-child(5) { top: 32px; }
-.loader-line:nth-child(6) { top: 40px; }
-.loader-line:nth-child(7) { top: 48px; }
-.loader-line:nth-child(8) { top: 56px; }
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes stretch {
-    0%, 40%, 100% { transform: scaleY(0.4); }
-    20% { transform: scaleY(1.0); }
-}
-        .user-icon {
-    color: blue;
-}
-
-.admin-icon {
-    color: black;
-}
-    </style>
-    <script>
-    window.addEventListener("load", function () {
-        const loader = document.getElementById("loader");
-        loader.style.opacity = "0";
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 500);
-    });
-</script>
 </head>
-<body>
-<div id="loader">
-        <div class="loader-inner">
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-            <div class="loader-line"></div>
-        </div>
-    </div>
 
-    
+
+
+
+
+
+<body>
 @if ($errors->any())
     <!-- Display the first error message -->
     <div class="alert alert-danger">
@@ -127,7 +41,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="/"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
+                <a class="navbar-brand logo_h" href="home"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -164,11 +78,11 @@
         @endif
     </a>
     <ul class="dropdown-menu">
-    <span style="display: block; padding: 10px 30px; color: #333; font-weight: bold;">{{ auth()->user()->email }}</span>
+    {{-- <span style="display: block; padding: 10px 30px; color: #333; font-weight: bold;">{{ auth()->user()->email }}</span> --}}
         @if(auth()->user()->isAdmin())
-            <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li>
+            {{-- <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li> --}}
         @else
-            <li class="nav-item"><a class="nav-link" href="user">Dashboard</a></li>
+            {{-- <li class="nav-item"><a class="nav-link" href="user">Dashboard</a></li> --}}
         @endif
         <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                onclick="event.preventDefault();
