@@ -1,6 +1,9 @@
-@extends('students.layout')
+@extends('auth.main')
+@section('title')
 @section('content')
-    <div class="container">
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="container" style="width: 50%; margin-left: 30%">
         <div class="row">
  
             <div class="col-md-9">

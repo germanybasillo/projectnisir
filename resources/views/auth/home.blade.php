@@ -22,6 +22,7 @@
 								<a class="primary_btn" href="admin"><span>Dashboard</span></a>
 								@else
 								<a class="primary_btn tr-bg" href="user"><span>Dashboard</span></a>
+								<a class="primary_btn" href="student"><span>SaveYourGrades</span></a>
 								@endif
 							</div>
 						</div>

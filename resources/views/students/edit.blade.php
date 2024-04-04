@@ -1,7 +1,9 @@
-@extends('students.layout')
+@extends('auth.main')
+@section('title')
 @section('content')
  
-<div class="card">
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<div class="card" style="width: 50%; margin-left: 30%">
   <div class="card-header">Contactus Page</div>
   <div class="card-body">
       
@@ -24,3 +26,4 @@
 </div>
  
 @stop
+@endsection
