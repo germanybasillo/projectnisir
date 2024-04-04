@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -145,17 +146,17 @@ class LoginRegisterController extends Controller
         return redirect('/')->withErrors(['Please login to access my about project.']);
     } 
 
-    public function admin()
+    public function admin($id)
     {
         // Check if user is authenticated
         if (Auth::check()) {
+            // If authenticated, return the user view
             return view('auth.admin');
         }
         
-        // Redirect to login with error message if not authenticated
-        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
-        return redirect('/')->withErrors(['Please login to access my admin dashboarad project.']);
-    } 
+        // If not authenticated, redirect to login page with error message
+        return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
+    }
 
     public function blog()
     {
@@ -205,17 +206,17 @@ class LoginRegisterController extends Controller
         return redirect('/')->withErrors(['Please login to access my services project.']);
     } 
 
-    public function user()
-    {
-        // Check if user is authenticated
-        if (Auth::check()) {
-            return view('auth.user');
-        }
-        
-        // Redirect to login with error message if not authenticated
-        // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
-        return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
-    } 
+    public function user($id)
+{
+    // Check if user is authenticated
+    if (Auth::check()) {
+        // If authenticated, return the user view
+        return view('auth.user');
+    }
+    
+    // If not authenticated, redirect to login page with error message
+    return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
+}
 
 
     /**

@@ -3,6 +3,12 @@
 use App\Http\Controllers\Auth\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
 
+
+
+
+
+
+
 Route::get('/', function () {
     return view('zeha');
 });
@@ -29,15 +35,43 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::get('/home', 'home')->name('home');
     Route::get('/about', 'about')->name('about');
-    Route::get('/admin', 'admin')->name('admin');
+
+
+
+     // User Route with Required Parameter
+     Route::get('/user/{id}', 'user')->name('user');
+
+     // Admin Route with Required Parameter
+     Route::get('/admin/{id}', 'admin')->name('admin');
+
+
+     
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/portfolio', 'portfolio')->name('portfolio');
     Route::get('/services', 'services')->name('services');
-    Route::get('/user', 'user')->name('user');
     Route::post('/logout', 'logout')->name('logout');
 });
+
 
 // In routes/web.php
 use App\Http\Controllers\ContactFormController;
 Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.store');
+
+ // Contact Route with Optional Parameter
+Route::get('/contact/{method?}', function ($method = 'email') {
+    return "Contact method: $method";
+})->name('contact.method');
+
+
+
+
+
+
+
+
+//Basic Routing
+//Naming Routes
+//Required Parameters
+//Optional Parameter
+//Route Group

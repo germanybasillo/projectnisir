@@ -31,13 +31,13 @@
 
 
 
-
 @if ($errors->any())
     <!-- Display the first error message -->
     <div class="alert alert-danger">
         {{ $errors->first() }}
     </div>
 @endif
+
 <!--================ Start Header Area =================-->
 <header class="header_area">
     <div class="main_menu">
@@ -102,9 +102,9 @@
     <ul class="dropdown-menu">
     {{-- <span style="display: block; padding: 10px 30px; color: #333; font-weight: bold;">{{ auth()->user()->email }}</span> --}}
         @if(auth()->user()->isAdmin())
-            <li class="nav-item"><a class="nav-link" href="admin">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin/1">Dashboard</a></li>
         @else
-            <li class="nav-item"><a class="nav-link" href="user">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="user/1">Dashboard</a></li>
         @endif
         <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                onclick="event.preventDefault();
