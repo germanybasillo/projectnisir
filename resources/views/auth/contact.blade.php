@@ -52,10 +52,10 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input value="{{ auth()->user()->name }}" class="form-control" id="name" name="name" placeholder="Enter your name">
+                                <input value="{{ auth()->user()->name }}" class="form-control" id="name" name="name" readonly>
                             </div>
                             <div class="form-group">
-                                <input value="{{ auth()->user()->email }}" class="form-control" id="email" name="email" placeholder="Enter email address">
+                                <input value="{{ auth()->user()->email }}" class="form-control" id="email" name="email" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
@@ -77,6 +77,4 @@
         </div>
     </section>
     <!--================Contact Area =================-->
-
-
 @endsection

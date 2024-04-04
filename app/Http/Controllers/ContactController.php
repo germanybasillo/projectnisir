@@ -15,8 +15,8 @@ class ContactController extends Controller
     public function send(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
+            'name' => 'required|{{ auth()->user()->name }}',
+            'email' => 'required|{{ auth()->user()->email }}',
             'subject' => 'required',
             'message' => 'required',
         ]);

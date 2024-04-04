@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeHa_Web - @yield('title')</title>
@@ -20,9 +20,17 @@
     <link rel="stylesheet" href="{{ asset('webpage/vendors/nice-select/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('webpage/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
+
+    <head>
+        <title>ZeHa_Web - @yield('title')</title>
+    </head>
+  
 
 <body style="height:100vh;">
+
+
+
+
 
 @if ($errors->any())
     <!-- Display the first error message -->
@@ -37,7 +45,12 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
+                @guest
+                <a class="navbar-brand logo_h" href="/"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
+                @else
                 <a class="navbar-brand logo_h" href="home"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
+                @endguest
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -53,16 +66,29 @@
                         @else
                             <li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+
+                            @if(auth()->user()->isAdmin())
+                            {{-- <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li> --}}
+                            @else
                             <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                            @endif
+
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false">Portfolio Details</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
                                     <li class="nav-item"><a class="nav-link" href="blog">Single-Blog</a></li>
+
+                                    @if(auth()->user()->isAdmin())
+                                    {{-- <li class="nav-item"><a class="nav-link" href="services">Services</a></li> --}}
+                                    @else
                                     <li class="nav-item"><a class="nav-link" href="services">Services</a></li>
+                                    @endif
+
                                 </ul>
                             </li>
+
                             <li class="nav-item submenu dropdown">
     <span style="font-size: 0.8em;">({{ auth()->user()->isAdmin() ? 'Admin' : 'User' }})</span>
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -131,6 +157,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 <script src="{{ asset('webpage/js/gmaps.min.js') }}"></script>
 <script src="{{ asset('webpage/js/theme.js') }}"></script>
+
 
 </body>
 </html>
