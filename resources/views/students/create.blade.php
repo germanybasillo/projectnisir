@@ -16,7 +16,7 @@
         <label>Subject</label></br>
         <input type="text" name="subject" id="subject" class="form-control" ></br>
         <label>Grades</label></br>
-        <input type="text" name="grades" id="grades" class="form-control"></br>
+        <input type="text" name="grades" id="grades" class="form-control" ></br>
         <input type="submit" value="Save" class="btn btn-success"></br>
     </form>
    
