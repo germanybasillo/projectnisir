@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StudentController;
 
 
 
@@ -38,6 +38,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 
 
+
      // User Route with Required Parameter
      Route::get('/user/{id}', 'user')->name('user');
 
@@ -45,7 +46,6 @@ Route::controller(LoginRegisterController::class)->group(function() {
      Route::get('/admin/{id}', 'admin')->name('admin');
 
 
-     
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/portfolio', 'portfolio')->name('portfolio');
@@ -57,7 +57,6 @@ Route::controller(LoginRegisterController::class)->group(function() {
 // In routes/web.php
 use App\Http\Controllers\ContactFormController;
 Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.store');
-
  // Contact Route with Optional Parameter
 Route::get('/contact/{method?}', function ($method = 'email') {
     return "Contact method: $method";
@@ -65,13 +64,8 @@ Route::get('/contact/{method?}', function ($method = 'email') {
 
 
 
+Route::resource("/student", StudentController::class);
 
 
 
 
-
-//Basic Routing
-//Naming Routes
-//Required Parameters
-//Optional Parameter
-//Route Group

@@ -132,7 +132,6 @@ class LoginRegisterController extends Controller
         // return redirect('/')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
         return redirect('/')->withErrors(['Please login to access my home project.']);
     } 
-    
 
     public function about()
     {
@@ -205,6 +204,8 @@ class LoginRegisterController extends Controller
         // return redirect()->route('login')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
         return redirect('/')->withErrors(['Please login to access my services project.']);
     } 
+
+  
 
     public function user($id)
 {
