@@ -49,14 +49,12 @@
                 @else
                 <a class="navbar-brand logo_h" href="home"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
                 @endguest
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav justify-content-end">
                         @guest
@@ -68,7 +66,7 @@
                             <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">Portfolio Details</a>
+                                    aria-expanded="false">Portfolio Details</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
                                     <li class="nav-item"><a class="nav-link" href="blog">Single-Blog</a></li>
@@ -78,7 +76,7 @@
                             <li class="nav-item submenu dropdown">
                                 <span style="font-size: 0.8em;">({{ auth()->user()->isAdmin() ? 'Admin' : 'User' }})</span>
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">
+                                    aria-expanded="false">
                                     @if(auth()->user()->isAdmin())
                                         <i class="fa fa-shield-alt admin-icon"></i>
                                     @else
@@ -86,16 +84,14 @@
                                     @endif
                                 </a>
                                 <ul class="dropdown-menu">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">
                                     @if(auth()->user()->isAdmin())
                                         <li class="nav-item"><a class="nav-link" href="admin/1">Dashboard</a></li>
                                     @else
                                         <li class="nav-item"><a class="nav-link" href="user/1">Dashboard</a></li>
                                     @endif
                                     <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
-                                                           onclick="event.preventDefault();
-                                                           document.getElementById('logout-form').submit();"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"
                                         >Logout</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -110,7 +106,6 @@
         </nav>
     </div>
 </header>
-
 
 <!--================ End Header Area =================-->
 <main>
