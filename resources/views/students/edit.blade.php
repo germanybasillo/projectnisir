@@ -4,7 +4,8 @@
  
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 <div class="card" style="width: 50%; margin-left: 30%">
-  <div class="card-header">Contactus Page</div>
+  <div class="card-header">Contactus Page</div>  
+  <a class="btn btn-primary" href="javascript:history.go(-1)">Back</a>
   <div class="card-body">
       
       <form action="{{ url('student/' .$students->id) }}" method="post">
