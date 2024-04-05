@@ -47,7 +47,7 @@ class LoginRegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
-            'user_type' => 'required|in:student,teacher,admin', // Assuming user type can be 'user' or 'admin'
+            'user_type' => 'required|in:student,teacher,admin', // Validate user_type against allowed values
             'password' => 'required|min:8|confirmed'
         ]);
         

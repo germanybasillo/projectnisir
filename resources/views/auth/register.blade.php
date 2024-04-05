@@ -39,13 +39,13 @@
                 </div>
 				<div class="form-group">
 					<label for="usertype"></label>
-					<select name="usertype" class="form-control rounded-left @error('usertype') is-invalid @enderror">
+					<select name="user_type" class="form-control rounded-left @error('usertype') is-invalid @enderror">
 						<option value="" selected disabled>Select User Type</option>
-						<option value="student" {{ old('usertype') == 'student' ? 'selected' : '' }}>Student</option>
-						<option value="teacher" {{ old('usertype') == 'teacher' ? 'selected' : '' }}>Teacher</option>
-						<option value="admin" {{ old('usertype') == 'admin' ? 'selected' : '' }}>Admin</option>
+						<option value="student" {{ old('user_type') == 'student' ? 'selected' : '' }}>Student</option>
+						<option value="teacher" {{ old('user_type') == 'teacher' ? 'selected' : '' }}>Teacher</option>
+						<option value="admin" {{ old('user_type') == 'admin' ? 'selected' : '' }}>Admin</option>
 					</select>
-					@error('usertype')
+					@error('user_type')
 						<span class="text-danger">{{ $message }}</span>
 					@enderror
 				</div><br>

@@ -43,52 +43,54 @@
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                @guest
-                    <a class="navbar-brand logo_h" href="/"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
-                @else
-                    <a class="navbar-brand logo_h" href="home"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
-                @endguest
+                <a class="navbar-brand logo_h" href="{{ url('/') }}">
+                    <img src="{{ asset('webpage/img/zeha.png') }}" alt="Logo" style="width: 100px;">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav justify-content-end">
                         @guest
                             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-                            
-                            @if(auth()->check() && auth()->user()->usertype == 'admin')
-                                <!-- Admin-specific links -->
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                        aria-expanded="false">Admin Options</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="admin-dashboard">Dashboard</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="admin-settings">Settings</a></li>
-                                    </ul>
+                            <li class="nav-item {{ request()->is('home') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('about') }}">About</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                            </li>
+                            @if(auth()->user()->user_type == 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="admin">Dashboard</a>
                                 </li>
-                            @elseif(auth()->check() && auth()->user()->usertype == 'teacher')
-                                <!-- Teacher-specific links -->
-                                <li class="nav-item"><a class="nav-link" href="teacher-dashboard">Teacher Dashboard</a></li>
-                            @elseif(auth()->check() && auth()->user()->usertype == 'student')
-                                <!-- Student-specific links -->
-                                <li class="nav-item"><a class="nav-link" href="student-dashboard">Student Dashboard</a></li>
+                            @elseif(auth()->user()->user_type == 'student')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="student">Student Dashboard</a>
+                                </li>
                             @endif
-                            <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();"
-                                >Logout</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                </form>
+                            
+                            @if(auth()->user()->user_type == 'teacher')
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Teacher Dashboard
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="teacher">Dashboard</a>
+                                    </div>
+                                </li>
+                            @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
                             </li>
                         @endguest
                     </ul>
@@ -97,6 +99,10 @@
         </nav>
     </div>
 </header>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 
 
 <!--================ End Header Area =================-->
