@@ -63,19 +63,24 @@
                             <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('about') }}">About</a>
                             </li>
-                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                            <li class="nav-item {{ request()->is('blog') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('blog') }}">blog</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('portfolio') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('portfolio') }}">portfolio</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('services') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('services') }}">services</a>
                             </li>
                             @if(auth()->user()->user_type == 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="admin">Dashboard</a>
+                                    <a class="nav-link" href="admin/1">Dashboard</a>
                                 </li>
                             @elseif(auth()->user()->user_type == 'student')
                                 <li class="nav-item">
                                     <a class="nav-link" href="student">Student Dashboard</a>
                                 </li>
                             @endif
-                            
                             @if(auth()->user()->user_type == 'teacher')
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
