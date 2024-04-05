@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\InboxController;
 
 
 
@@ -70,5 +71,6 @@ Route::get('/contact/{method?}', function ($method = 'email') {
 // Route::resource("/student", StudentController::class);
 
 
+Route::get('inbox', [InboxController::class, 'index'])->name('inbox');
 
 

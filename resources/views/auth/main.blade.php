@@ -72,6 +72,9 @@
                             <li class="nav-item {{ request()->is('services') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('services') }}">services</a>
                             </li>
+                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('contact') }}">contact</a>
+                            </li>
                             @if(auth()->user()->user_type == 'admin')
                                 <li class="nav-item">
                                     <a class="nav-link" href="admin/1">Dashboard</a>

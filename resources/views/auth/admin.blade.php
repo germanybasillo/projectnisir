@@ -98,7 +98,7 @@
                                 <p class="text-muted mb-0">Administrator</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="inbox">Inbox</a>
+                        <a class="dropdown-item" href="{{ route('inbox') }}">Inbox</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     </div>
