@@ -208,16 +208,16 @@ class LoginRegisterController extends Controller
 
   
 
-    public function user($id)
+    public function teacher($id)
 {
     // Check if user is authenticated
     if (Auth::check()) {
         // If authenticated, return the user view
-        return view('auth.user');
+        return view('auth.teacher');
     }
     
     // If not authenticated, redirect to login page with error message
-    return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
+    return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
 }
 
 

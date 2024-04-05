@@ -78,17 +78,12 @@
                                 </li>
                             @elseif(auth()->user()->user_type == 'student')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="student">Student Dashboard</a>
+                                    <a class="nav-link" href="student">Dashboard</a>
                                 </li>
                             @endif
                             @if(auth()->user()->user_type == 'teacher')
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Teacher Dashboard
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="teacher">Dashboard</a>
-                                    </div>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="teacher/1">Dashboard</a>
                                 </li>
                             @endif
                             <li class="nav-item">

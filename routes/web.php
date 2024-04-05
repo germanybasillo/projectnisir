@@ -40,7 +40,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 
      // User Route with Required Parameter
-     Route::get('/user/{id}', 'user')->name('user');
+     Route::get('/teacher1/{id}', 'teacher')->name('teacher');
 
      // Admin Route with Required Parameter
      Route::get('/admin/{id}', 'admin')->name('admin');
