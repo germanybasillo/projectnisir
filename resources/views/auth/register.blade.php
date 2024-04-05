@@ -37,13 +37,18 @@
                 <div class="form-group d-flex">
                 <input type="password" name="password_confirmation" class="form-control rounded-left" placeholder="Confirm Password">
                 </div>
-				<div class="form-group d-flex">
-                                <label></label>
-                                <select name="user_type" required>
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
-                                </select>
-				</div>
+				<div class="form-group">
+					<label for="usertype"></label>
+					<select name="usertype" class="form-control rounded-left @error('usertype') is-invalid @enderror">
+						<option value="" selected disabled>Select User Type</option>
+						<option value="student" {{ old('usertype') == 'student' ? 'selected' : '' }}>Student</option>
+						<option value="teacher" {{ old('usertype') == 'teacher' ? 'selected' : '' }}>Teacher</option>
+						<option value="admin" {{ old('usertype') == 'admin' ? 'selected' : '' }}>Admin</option>
+					</select>
+					@error('usertype')
+						<span class="text-danger">{{ $message }}</span>
+					@enderror
+				</div><br>
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
 	            </div>

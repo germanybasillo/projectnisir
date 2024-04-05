@@ -48,9 +48,9 @@ class User extends Authenticatable
     // Your other properties and methods...
 
     // Define isAdmin method
-    public function isAdmin()
-    {
-        return $this->user_type === 'admin';
-    }
+    // public function isAdmin()
+    // {
+    //     return $this->user_type === 'admin';
+    // }
 }
 

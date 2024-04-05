@@ -45,9 +45,9 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 @guest
-                <a class="navbar-brand logo_h" href="/"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
+                    <a class="navbar-brand logo_h" href="/"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
                 @else
-                <a class="navbar-brand logo_h" href="home"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
+                    <a class="navbar-brand logo_h" href="home"><img src="{{ asset('webpage/img/zeha.png') }}" alt="" style="width: 100px;"></a>
                 @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,40 +64,31 @@
                             <li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                    aria-expanded="false">Portfolio Details</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog">Single-Blog</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="services">Services</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <span style="font-size: 0.8em;">({{ auth()->user()->isAdmin() ? 'Admin' : 'User' }})</span>
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    @if(auth()->user()->isAdmin())
-                                        <i class="fa fa-shield-alt admin-icon"></i>
-                                    @else
-                                        <i class="fa fa-user user-icon"></i>
-                                    @endif
-                                </a>
-                                <ul class="dropdown-menu">
-                                    @if(auth()->user()->isAdmin())
-                                        <li class="nav-item"><a class="nav-link" href="admin/1">Dashboard</a></li>
-                                    @else
-                                        <li class="nav-item"><a class="nav-link" href="user/1">Dashboard</a></li>
-                                    @endif
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();"
-                                        >Logout</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
+                            
+                            @if(auth()->check() && auth()->user()->usertype == 'admin')
+                                <!-- Admin-specific links -->
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">Admin Options</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="admin-dashboard">Dashboard</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="admin-settings">Settings</a></li>
+                                    </ul>
+                                </li>
+                            @elseif(auth()->check() && auth()->user()->usertype == 'teacher')
+                                <!-- Teacher-specific links -->
+                                <li class="nav-item"><a class="nav-link" href="teacher-dashboard">Teacher Dashboard</a></li>
+                            @elseif(auth()->check() && auth()->user()->usertype == 'student')
+                                <!-- Student-specific links -->
+                                <li class="nav-item"><a class="nav-link" href="student-dashboard">Student Dashboard</a></li>
+                            @endif
+                            <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"
+                                >Logout</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
@@ -106,6 +97,7 @@
         </nav>
     </div>
 </header>
+
 
 <!--================ End Header Area =================-->
 <main>
@@ -146,3 +138,39 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+  {{-- <li class="nav-item submenu dropdown">
+                                <span style="font-size: 0.8em;">({{ auth()->user()->isAdmin() ? 'Admin' : 'User' }})</span>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    @if(auth()->user()->isAdmin())
+                                        <i class="fa fa-shield-alt admin-icon"></i>
+                                    @else
+                                        <i class="fa fa-user user-icon"></i>
+                                    @endif
+                                </a>
+                                <ul class="dropdown-menu">
+                                    @if(auth()->user()->isAdmin())
+                                        <li class="nav-item"><a class="nav-link" href="admin/1">Dashboard</a></li>
+                                    @else
+                                        <li class="nav-item"><a class="nav-link" href="user/1">Dashboard</a></li>
+                                    @endif
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"
+                                        >Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest --}}
