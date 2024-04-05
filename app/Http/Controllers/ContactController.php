@@ -17,8 +17,8 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required|{{ auth()->user()->name }}',
             'email' => 'required|{{ auth()->user()->email }}',
-            'subject' => 'required',
-            'message' => 'required',
+            'subject' => 'required|string|max:5',
+            'message' => 'required|string|max:250',
         ]);
 
         // Send email using Laravel's built-in Mail facade

@@ -1,9 +1,20 @@
 @extends('auth.main')
 
 @section('content')
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>Contact Form</h2>
+                <div class="page_link">
+                    <a href="home">Home</a>
+                    <a href="inbox">Inbox</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <div class="container">
-        <h2>Inbox</h2>
-
         <table class="table">
             <thead>
                 <tr>
