@@ -98,9 +98,9 @@
                                 <p class="text-muted mb-0">Administrator</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="inbox.html">Inbox</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="inbox">Inbox</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -117,9 +117,7 @@
                         <li class="submenu active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="feather-grid"></i> <span>Dashboard</span> <span class="menu-arrow"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="index.html" class="active">Admin Dashboard</a></li>
-                                <li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
-                                <li><a href="student-dashboard.html">Student Dashboard</a></li>
+                                <li><a href="admin" class="active">Admin Dashboard</a></li>
                             </ul>
                         </li>
                     </ul>

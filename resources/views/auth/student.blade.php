@@ -76,7 +76,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item zoom-screen me-2">
+                <li class="nav-item zoom-screen me-2">  
                     <a href="#" class="nav-link header-nav-list win-maximize">
                         <img src="/assets/img/icons/header-icon-04.svg" alt="">
                     </a>
@@ -87,7 +87,7 @@
                         <span class="user-img">
                             <div class="user-text">
                                 <h6>{{ auth()->user()->name }}</h6>
-                                <p class="text-muted mb-0">Teacher</p>
+                                <p class="text-muted mb-0">Student</p>
                             </div>
                         </span>
                     </a>
@@ -95,10 +95,11 @@
                         <div class="user-header">
                             <div class="user-text">
                                 <h6>{{ auth()->user()->name }}</h6>
-                                <p class="text-muted mb-0">Teacher</p>
+                                <p class="text-muted mb-0">Student</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -115,7 +116,7 @@
                         <li class="submenu active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="feather-grid"></i> <span>Dashboard</span> <span class="menu-arrow"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="teacher">Teacher Dashboard</a></li>
+                                <li><a href="student">Student Dashboard</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -133,7 +134,7 @@
                               <h3 class="page-title">Welcome {{ auth()->user()->name }}!</h3>
                               <ul class="breadcrumb">
                                   <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                  <li class="breadcrumb-item active">Teacher</li>
+                                  <li class="breadcrumb-item active">Student</li>
                               </ul>
                           </div>
                       </div>
@@ -141,67 +142,67 @@
               </div>
 
         <div class="row">
-          <div class="col-xl-3 col-sm-6 col-12 d-flex">
-            <div class="card bg-comman w-100">
-            <div class="card-body">
-            <div class="db-widgets d-flex justify-content-between align-items-center">
-            <div class="db-info">
-            <h6>Total Classes</h6>
-            <h3>04/06</h3>
-            </div>
-            <div class="db-icon">
-            <img src="/assets/img/icons/teacher-icon-01.svg" alt="Dashboard Icon">
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
             <div class="col-xl-3 col-sm-6 col-12 d-flex">
-            <div class="card bg-comman w-100">
-            <div class="card-body">
-            <div class="db-widgets d-flex justify-content-between align-items-center">
-            <div class="db-info">
-            <h6>Total Students</h6>
-            <h3>40/60</h3>
-            </div>
-            <div class="db-icon">
-            <img src="/assets/img/icons/dash-icon-01.svg" alt="Dashboard Icon">
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-            <div class="card bg-comman w-100">
-            <div class="card-body">
-            <div class="db-widgets d-flex justify-content-between align-items-center">
-            <div class="db-info">
-            <h6>Total Lessons</h6>
-            <h3>30/50</h3>
-            </div>
-            <div class="db-icon">
-            <img src="/assets/img/icons/teacher-icon-02.svg" alt="Dashboard Icon">
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12 d-flex">
-            <div class="card bg-comman w-100">
-            <div class="card-body">
-            <div class="db-widgets d-flex justify-content-between align-items-center">
-            <div class="db-info">
-            <h6>Total Hours</h6>
-            <h3>15/20</h3>
-            </div>
-            <div class="db-icon">
-            <img src="/assets/img/icons/teacher-icon-03.svg" alt="Dashboard Icon">
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
+                <div class="card bg-comman w-100">
+                <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                <h6>All Courses</h6>
+                <h3>04/06</h3>
+                </div>
+                <div class="db-icon">
+                <img src="/assets/img/icons/teacher-icon-01.svg" alt="Dashboard Icon">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-comman w-100">
+                <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                <h6>All Projects</h6>
+                <h3>40/60</h3>
+                </div>
+                <div class="db-icon">
+                <img src="/assets/img/icons/teacher-icon-02.svg" alt="Dashboard Icon">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-comman w-100">
+                <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                <h6>Test Attended</h6>
+                <h3>30/50</h3>
+                </div>
+                <div class="db-icon">
+                <img src="/assets/img/icons/student-icon-01.svg" alt="Dashboard Icon">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                <div class="card bg-comman w-100">
+                <div class="card-body">
+                <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                <h6>Test Passed</h6>
+                <h3>15/20</h3>
+                </div>
+                <div class="db-icon">
+                <img src="/assets/img/icons/student-icon-02.svg" alt="Dashboard Icon">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
     </div>
 
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>

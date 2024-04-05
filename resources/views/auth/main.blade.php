@@ -78,7 +78,7 @@
                                 </li>
                             @elseif(auth()->user()->user_type == 'student')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="student">Dashboard</a>
+                                    <a class="nav-link" href="student/1">Dashboard</a>
                                 </li>
                             @endif
                             @if(auth()->user()->user_type == 'teacher')

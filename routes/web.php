@@ -40,10 +40,13 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 
      // User Route with Required Parameter
-     Route::get('/teacher1/{id}', 'teacher')->name('teacher');
+     Route::get('/teacher/{id}', 'teacher')->name('teacher');
 
      // Admin Route with Required Parameter
      Route::get('/admin/{id}', 'admin')->name('admin');
+
+     // Admin Route with Required Parameter
+     Route::get('/student/{id}', 'student')->name('student');
 
 
     Route::get('/blog', 'blog')->name('blog');
@@ -64,7 +67,7 @@ Route::get('/contact/{method?}', function ($method = 'email') {
 
 
 
-Route::resource("/student", StudentController::class);
+// Route::resource("/student", StudentController::class);
 
 
 

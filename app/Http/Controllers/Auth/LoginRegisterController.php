@@ -220,6 +220,17 @@ class LoginRegisterController extends Controller
     return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
 }
 
+public function student($id)
+{
+    // Check if user is authenticated
+    if (Auth::check()) {
+        // If authenticated, return the user view
+        return view('auth.student');
+    }
+    
+    // If not authenticated, redirect to login page with error message
+    return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
+}
 
     /**
      * Log out the user from application.
