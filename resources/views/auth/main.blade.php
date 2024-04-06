@@ -72,16 +72,22 @@
                             <li class="nav-item {{ request()->is('services') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('services') }}">services</a>
                             </li>
+                            @if(auth()->user()->user_type == 'admin')
+                            <li class="nav-item {{ request()->is('student') ? 'active' : '' }}">
+                                <a class="nav-link" href="student">Grades</a>
+                            </li>
+                            @else
                             <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('contact') }}">contact</a>
                             </li>
+                            @endif
                             @if(auth()->user()->user_type == 'admin')
                                 <li class="nav-item">
                                     <a class="nav-link" href="admin/1">Dashboard</a>
                                 </li>
-                            @elseif(auth()->user()->user_type == 'student')
+                            @elseif(auth()->user()->user_type == 'students')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="student/1">Dashboard</a>
+                                    <a class="nav-link" href="students/1">Dashboard</a>
                                 </li>
                             @endif
                             @if(auth()->user()->user_type == 'teacher')
