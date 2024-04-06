@@ -30,7 +30,6 @@
 
 
 
-
 @if ($errors->any())
     <!-- Display the first error message -->
     <div class="alert alert-danger">
@@ -82,19 +81,19 @@
                             </li>
                             @endif
                             @if(auth()->user()->user_type == 'admin')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="admin/1">Dashboard</a>
-                                </li>
-                            @elseif(auth()->user()->user_type == 'students')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="students/1">Dashboard</a>
-                                </li>
-                            @endif
-                            @if(auth()->user()->user_type == 'teacher')
-                                <li class="nav-item">
-                                        <a class="nav-link" href="teacher/1">Dashboard</a>
-                                </li>
-                            @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin/1">Dashboard</a>
+                            </li>
+                        @elseif(auth()->check() && auth()->user()->user_type == 'student')
+                            <li class="nav-item">
+                                <a class="nav-link" href="students/1">Dashboard</a>
+                            </li>
+                        @elseif(auth()->user()->user_type == 'teacher')
+                            <li class="nav-item">
+                                <a class="nav-link" href="teacher/1">Dashboard</a>
+                            </li>
+                        @endif
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
