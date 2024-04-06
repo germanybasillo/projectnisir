@@ -99,8 +99,13 @@
                             </div>
                         </div>
                         <a class="dropdown-item" href="{{ route('inbox') }}">Inbox</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -115,9 +120,9 @@
                             <span>Main Menu</span>
                         </li>
                         <li class="submenu active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="feather-grid"></i> <span>Dashboard</span> <span class="menu-arrow"></span></a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="feather-grid"></i> <span>Dashboard</span> <span class="menu-arrow"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="admin" class="active">Admin Dashboard</a></li>
+                                <li><a href="admin">Admin Dashboard</a></li>
                             </ul>
                         </li>
                     </ul>
