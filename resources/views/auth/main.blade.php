@@ -37,6 +37,7 @@
     </div>
 @endif
 
+
 <!--================ Start Header Area =================-->
 <header class="header_area">
     <div class="main_menu">

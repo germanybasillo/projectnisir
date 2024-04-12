@@ -144,7 +144,7 @@ class LoginRegisterController extends Controller
         
         // Redirect to login with error message if not authenticated
         // return redirect('/')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
-        return redirect('/')->withErrors(['Please login to access my home project.']);
+        return redirect('/')->withErrors(['Please login to access my dashboard project.']);
     } 
 
     public function about()

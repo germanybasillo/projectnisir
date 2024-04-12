@@ -16,6 +16,12 @@
 </head>
 
 <body>
+    @if ($errors->any())
+    <!-- Display the first error message -->
+    <div class="alert alert-danger">
+        {{ $errors->first() }}
+    </div>
+@endif
   
     <div class="main-wrapper">
 
