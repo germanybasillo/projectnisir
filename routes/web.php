@@ -6,10 +6,6 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\InboxController;
 
 
-
-
-
-
 Route::get('/', function () {
     return view('zeha');
 });

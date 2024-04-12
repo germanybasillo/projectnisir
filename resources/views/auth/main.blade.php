@@ -80,8 +80,6 @@
                                 <a class="nav-link" href="{{ route('contact') }}">contact</a>
                             </li>
                             @endif
-                          
-                            <li class="nav-item"><a class="nav-link" href="dashboard/1">Dashboard</a></li>
                             {{-- @if(auth()->user()->user_type == 'admin') --}}
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="admin/1">Dashboard</a>
@@ -95,6 +93,7 @@
                                 <a class="nav-link" href="teacher/1">Dashboard</a>
                             </li> --}}
                             {{-- @endif --}}
+                            <li class="nav-item"><a class="nav-link" href="dashboard/1">Dashboard</a></li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
