@@ -80,8 +80,10 @@
                                 <a class="nav-link" href="{{ route('contact') }}">contact</a>
                             </li>
                             @endif
-                            @if(auth()->user()->user_type == 'admin')
-                            <li class="nav-item">
+                          
+                            <li class="nav-item"><a class="nav-link" href="dashboard/1">Dashboard</a></li>
+                            {{-- @if(auth()->user()->user_type == 'admin') --}}
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="admin/1">Dashboard</a>
                             </li>
                         @elseif(auth()->check() && auth()->user()->user_type == 'student')
@@ -91,9 +93,8 @@
                         @elseif(auth()->user()->user_type == 'teacher')
                             <li class="nav-item">
                                 <a class="nav-link" href="teacher/1">Dashboard</a>
-                            </li>
-                        @endif
-                        
+                            </li> --}}
+                            {{-- @endif --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

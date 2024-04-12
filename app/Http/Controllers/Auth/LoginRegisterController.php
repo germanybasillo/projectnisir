@@ -134,6 +134,19 @@ class LoginRegisterController extends Controller
         return redirect('/')->withErrors(['Please login to access my home project.']);
     } 
 
+
+    public function dashboard($id)
+    {
+        // Check if user is authenticated
+        if (Auth::check()) {
+            return view('auth.dashboard');
+        }
+        
+        // Redirect to login with error message if not authenticated
+        // return redirect('/')->withErrors(['email' => 'Please login to access my project.'])->onlyInput('email');
+        return redirect('/')->withErrors(['Please login to access my home project.']);
+    } 
+
     public function about()
     {
         // Check if user is authenticated
@@ -146,17 +159,17 @@ class LoginRegisterController extends Controller
         return redirect('/')->withErrors(['Please login to access my about project.']);
     } 
 
-    public function admin($id)
-    {
+    // public function admin($id)
+    // {
         // Check if user is authenticated
-        if (Auth::check()) {
+        // if (Auth::check()) {
             // If authenticated, return the user view
-            return view('auth.admin');
-        }
+        //     return view('auth.admin');
+        // }
         
         // If not authenticated, redirect to login page with error message
-        return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
-    }
+    //     return redirect('/')->withErrors(['Please login to access my user dashboard project.']);
+    // }
 
     public function blog()
     {
@@ -208,29 +221,29 @@ class LoginRegisterController extends Controller
 
   
 
-    public function teacher($id)
-{
+//     public function teacher($id)
+// {
     // Check if user is authenticated
-    if (Auth::check()) {
+    // if (Auth::check()) {
         // If authenticated, return the user view
-        return view('auth.teacher');
-    }
+    //     return view('auth.teacher');
+    // }
     
     // If not authenticated, redirect to login page with error message
-    return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
-}
+//     return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
+// }
 
-public function students($id)
-{
+// public function students($id)
+// {
     // Check if user is authenticated
-    if (Auth::check()) {
+    // if (Auth::check()) {
         // If authenticated, return the user view
-        return view('auth.students');
-    }
+    //     return view('auth.students');
+    // }
     
     // If not authenticated, redirect to login page with error message
-    return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
-}
+//     return redirect('/')->withErrors(['Please login to access my Teacher dashboard project.']);
+// }
 
     /**
      * Log out the user from application.

@@ -41,13 +41,16 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 
      // User Route with Required Parameter
-     Route::get('/teacher/{id}', 'teacher')->name('teacher');
+    //  Route::get('/teacher/{id}', 'teacher')->name('teacher');
+
+    // User Route with Required Parameter
+     Route::get('/dashboard/{id}', 'dashboard')->name('dashboard');
 
      // Admin Route with Required Parameter
-     Route::get('/admin/{id}', 'admin')->name('admin');
+    //  Route::get('/admin/{id}', 'admin')->name('admin');
 
      // Admin Route with Required Parameter
-     Route::get('/students/{id}', 'students')->name('students');
+    //  Route::get('/students/{id}', 'students')->name('students');
 
 
     Route::get('/blog', 'blog')->name('blog');
